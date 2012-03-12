@@ -8,4 +8,4 @@ posted at mt-class.org:
 3) The RERANKER takes output translations and produces a new ranking of them.
 4) The EVALUATOR takes output translations and scores them against references.
 
-At the moment, the only thing that's here is the aligner. 
+At the moment, there is only the aligner and the decoder.
