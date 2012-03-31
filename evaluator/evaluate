@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+import optparse
+import glob
+import os
+from collections import Counter # multiset represented by dictionary
+
+# This function simply computes the unigram precision of the MT system 
+# output against the human reference translation. That is, it counts up the 
+# number of words in common between the system and reference (sentence by 
+# sentence), and divides by the total number of words output by the system.
+# The goal of this assignment: find a better way to score the system!
+# Note: system and ref are both lists of tuples of words (sentences).
+def score(system, ref):
+  matched_words = sum([sum((Counter(s) & Counter(r)).values()) for (s,r) in zip(system, ref)])
+  return float(matched_words) / sum([len(sentence) for sentence in system])
+ 
+optparser = optparse.OptionParser()
+optparser.add_option("-d", "--data-dir", dest="data", default="data/dev", help="Directory containing system outputs")
+(opts,_) = optparser.parse_args()
+(source, reference) = (opts.data + "/source", opts.data + "/reference")
+
+ref = [line.split() for line in open(reference)]
+
+# read and score each system and output ordered by score
+sys_scores = [(os.path.basename(f), score([line.split() for line in open(f)], ref)) for f in glob.glob(opts.data + "/*") if f != reference and f != source]
+for (sysname, score) in sorted(sys_scores, key=lambda x: -x[1]):
+  print sysname
