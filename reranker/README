@@ -1,0 +1,32 @@
+There are five python programs here (-h for usage):
+
+-rerank: reads N-best lists and for each one chooses the English sentence
+ with the highest score according the dot product of its feature values
+ and a weight vector.
+
+-learn: reads N-best lists and, using human translations of the same 
+ sentences as supervision, learns a weight vector for the features appearing
+ in the N-best list.
+
+-oracle: reads N-best lists and a human reference translation, and computes
+ an approximation to the best possible BLEU score that can be obtained from
+ the N-best list.
+
+-grade: computes the BLEU score of the translations.
+
+-check: ensures that an output file is in the correct format.
+
+There is also a module bleu.py which contains utility functions used
+by several of the programs
+
+The data directory contains several files derived from a French-English
+newswire translation task. 
+
+-train.fr: Training data consisting of French news text 
+-train.en: Human translations of the French training data
+-train.nbest: N-best machine translations of the French training data
+-test.fr: 500 sentences of French test data
+-test.en: Human translations of the first 250 sentences of the French test
+-test.nbest: N-best machine translations of the French test data  
+
+
