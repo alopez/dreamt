@@ -34,7 +34,7 @@ you are ready to start. If you don't, clone a fresh version of the repository by
 
 <p><pre>git clone https://github.com/alopez/dreamt.git</pre></p>
 
-<p>Under the new <tt>decode</tt> directory, We have provided you with a very 
+<p>Under the <tt>decode</tt> directory, We have provided you with a very 
 simple decoder written in Python (v.2.6-2.7; older versions will not work!) 
 The decoder translates monotonically &mdash; that is, without reordering the
 English phrases &mdash; and by default it also uses very strict pruning limits, 
@@ -128,7 +128,7 @@ sentence is as high as possible. Arbitrary permutations of the English
 phrases are allowed, provided that the phrase translations are one-to-one and
 exactly cover the input sentence. Even with all of the simplifications we
 have made, this problem is <i>still</i>
-NP-Complete, so we recommend that you solve it using an approximate
+NP-Hard, so we recommend that you solve it using an approximate
 method like stack decoding, discussed in Chapter 6 of the textbook. You 
 can trade efficiency for search effectiveness
 by implementing histogram pruning or threshold pruning, or by playing around
@@ -150,7 +150,7 @@ search problems as phrase-based models) could also be adapted:
   <li><a href="http://aclweb.org/anthology-new/N/N09/N09-2002.pdf">Decode using an integer linear programming (ILP) solver</a>.</li>
 </ul>
 
-<p>But the sky's the limit! Alignment isn't a solved problem, and you 
+<p>But the sky's the limit! Decoding isn't a solved problem, and you 
    should experiment to see how well you can do. Who knows? Maybe you'll
    develop the next state-of-the-art decoding algorithm!
 </p>

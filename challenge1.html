@@ -70,7 +70,7 @@ The aligner observes the training sentences and then gives a score, between
 computes <a href="http://en.wikipedia.org/wiki/Dice's_coefficient">Dice's coefficient</a> 
 between pairs of English and foreign words.  
 It then aligns all pairs of words with a score over 0.5.
-Run the baseline heuristic model 1,000 sentences
+Run the baseline heuristic model on 1,000 sentences
 using the command:
 </p>
 
@@ -112,7 +112,7 @@ the foreign sentence \( {\bf f} \) independently, conditioned on some word
 in the English sentence \( {\bf e} \).  
 The likelihood of a particular alignment \( {\bf a} \) of the foreign sentence therefore 
 factors across words: 
-\( P({\bf f}, {\bf a} | {\bf e}) = \prod_i P(a_i = j | |{\bf e}|) \times P(f_i | e_j) \).  
+\( P({\bf f}, {\bf a} | {\bf e}) = \prod_i P(a_i = j | |{\bf e}|) \times P(f_i | e_{a_i}) \).  
 In Model 1, we fix \( P(a_i = j | |e|) \) to be uniform 
 (i.e. equal to \( \frac{1}{|{\bf e}|} \)), so the likelihood 
 only depends upon the conditional word translation parameters \( P(f | e) \).
