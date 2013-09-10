@@ -74,13 +74,13 @@ Run the baseline heuristic model on 1,000 sentences
 using the command:
 </p>
 
-<pre>align -n 1000 &gt; dice.a</pre>
+<pre>./align -n 1000 &gt; dice.a</pre>
 
 <p>This runs the aligner and stores the output in <tt>dice.a</tt>. To view and
 score the alignments, run this command:
 </p>
 
-<pre>grade &lt; dice.a</pre>
+<pre>./grade &lt; dice.a</pre>
 
 <p>This command scores the alignment quality by comparing the output alignments
 against a set of human alignment annotations using a metric called the 
@@ -90,7 +90,7 @@ the terrible output of this heuristic model -- it's better than chance, but
 not any good. Try training on 10,000 sentences instead of 1,000, by specifying 
 the change on the command line:</p>
 
-<pre>align -n 10000 | grade</pre>
+<pre>./align -n 10000 | ./grade</pre>
 
 <p>Performance should improve, but only slightly!  Another experiment that 
 you can do is change the threshold criterion used 
