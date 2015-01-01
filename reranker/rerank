@@ -1,28 +1,31 @@
 #!/usr/bin/env python
 import optparse
 import sys
-from collections import namedtuple
 
 optparser = optparse.OptionParser()
-optparser.add_option("-n", "--nbest", dest="nbest", default="data/test.nbest", help="N-best file")
-optparser.add_option("-w", "--weight-file", dest="weights", default=None, help="Weight filename, or - for stdin (default=use uniform weights)")
+optparser.add_option("-k", "--kbest-list", dest="input", default="data/dev+test.100best", help="100-best translation lists")
+optparser.add_option("-l", "--lm", dest="lm", default=-1.0, type="float", help="Language model weight")
+optparser.add_option("-t", "--tm1", dest="tm1", default=-0.5, type="float", help="Translation model p(e|f) weight")
+optparser.add_option("-s", "--tm2", dest="tm2", default=-0.5, type="float", help="Lexical translation model p_lex(f|e) weight")
 (opts, _) = optparser.parse_args()
+weights = {'p(e)'       : float(opts.lm) ,
+           'p(e|f)'     : float(opts.tm1),
+           'p_lex(f|e)' : float(opts.tm2)}
 
-w = None
-if opts.weights is not None:
-  weights_file = sys.stdin if opts.weights is "-" else open(opts.weights)
-  w = [float(line.strip()) for line in weights_file]
+all_hyps = [pair.split(' ||| ') for pair in open(opts.input)]
+num_sents = len(all_hyps) / 100
+for s in xrange(0, num_sents):
+  hyps_for_one_sent = all_hyps[s * 100:s * 100 + 100]
+  (best_score, best) = (-1e300, '')
+  for (num, hyp, feats) in hyps_for_one_sent:
+    score = 0.0
+    for feat in feats.split(' '):
+      (k, v) = feat.split('=')
+      score += weights[k] * float(v)
+    if score > best_score:
+      (best_score, best) = (score, hyp)
+  try: 
+    sys.stdout.write("%s\n" % best)
+  except (Exception):
+    sys.exit(1)
 
-translation = namedtuple("translation", "english, score")
-nbests = []
-for line in open(opts.nbest):
-  (i, sentence, features) = line.strip().split("|||")
-  if len(nbests) <= int(i):
-    nbests.append([])
-  features = [float(h) for h in features.strip().split()]
-  if w is None:
-    w = [1.0/len(features) for _ in xrange(len(features))]
-  nbests[int(i)].append(translation(sentence.strip(), sum([x*y for x,y in zip(w, features)])))
-
-for nbest in nbests:
-  print sorted(nbest, key=lambda x: -x.score)[0].english

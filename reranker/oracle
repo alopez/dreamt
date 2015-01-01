@@ -6,23 +6,25 @@ from collections import namedtuple
 
 translation_candidate = namedtuple("candidate", "sentence, scores, inverse_scores")
 optparser = optparse.OptionParser()
-optparser.add_option("-r", "--reference", dest="reference", default="data/test.en", help="English reference sentences")
-optparser.add_option("-n", "--nbest", dest="nbest", default="data/test.nbest", help="N-best lists")
+optparser.add_option("-r", "--reference", dest="reference", default="data/dev.ref", help="English reference sentences")
+optparser.add_option("-n", "--nbest", dest="nbest", default="data/dev+test.100best", help="N-best lists")
 (opts,_) = optparser.parse_args()
 
 ref = [line.strip().split() for line in open(opts.reference)]
 
 nbests = []
+prev_i = -1
 for n, line in enumerate(open(opts.nbest)):
   (i, sentence, _) = line.strip().split("|||")
   (i, sentence) = (int(i), sentence.strip())
-  if len(ref) <= i:
-    break
-  while len(nbests) <= i:
+  if i != prev_i:
+    if len(nbests) == len(ref):
+      break
     nbests.append([])
-  scores = tuple(bleu.bleu_stats(sentence.split(), ref[i]))
+  prev_i = i
+  scores = tuple(bleu.bleu_stats(sentence.split(), ref[len(nbests)-1]))
   inverse_scores = tuple([-x for x in scores])
-  nbests[i].append(translation_candidate(sentence, scores, inverse_scores))
+  nbests[-1].append(translation_candidate(sentence, scores, inverse_scores))
   if n % 2000 == 0:
     sys.stderr.write(".")
 
@@ -47,6 +49,7 @@ while score > prev_score:
         score = new_score
         stats = new_stats
         oracle[i] = candidate
+        print score
 
 sys.stderr.write("\n")
 for candidate in oracle:
