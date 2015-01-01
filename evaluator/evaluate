@@ -1,27 +1,34 @@
 #!/usr/bin/env python
-import optparse
-import glob
-import os
-from collections import Counter # multiset represented by dictionary
-
-# This function simply computes the unigram precision of the MT system 
-# output against the human reference translation. That is, it counts up the 
-# number of words in common between the system and reference (sentence by 
-# sentence), and divides by the total number of words output by the system.
-# The goal of this assignment: find a better way to score the system!
-# Note: system and ref are both lists of tuples of words (sentences).
-def score(system, ref):
-  matched_words = sum([sum((Counter(s) & Counter(r)).values()) for (s,r) in zip(system, ref)])
-  return float(matched_words) / sum([len(sentence) for sentence in system])
+import argparse # optparse is deprecated
+from itertools import islice # slicing for iterators
  
-optparser = optparse.OptionParser()
-optparser.add_option("-d", "--data-dir", dest="data", default="data/dev", help="Directory containing system outputs")
-(opts,_) = optparser.parse_args()
-(source, reference) = (opts.data + "/source", opts.data + "/reference")
-
-ref = [line.split() for line in open(reference)]
-
-# read and score each system and output ordered by score
-sys_scores = [(os.path.basename(f), score([line.split() for line in open(f)], ref)) for f in glob.glob(opts.data + "/*") if f != reference and f != source]
-for (sysname, score) in sorted(sys_scores, key=lambda x: -x[1]):
-  print sysname
+def word_matches(h, ref):
+    return sum(1 for w in h if w in ref)
+ 
+def main():
+    parser = argparse.ArgumentParser(description='Evaluate translation hypotheses.')
+    parser.add_argument('-i', '--input', default='data/hyp1-hyp2-ref',
+            help='input file (default data/hyp1-hyp2-ref)')
+    parser.add_argument('-n', '--num_sentences', default=None, type=int,
+            help='Number of hypothesis pairs to evaluate')
+    # note that if x == [1, 2, 3], then x[:None] == x[:] == x (copy); no need for sys.maxint
+    opts = parser.parse_args()
+ 
+    # we create a generator and avoid loading all sentences into a list
+    def sentences():
+        with open(opts.input) as f:
+            for pair in f:
+                yield [sentence.strip().split() for sentence in pair.split(' ||| ')]
+ 
+    # note: the -n option does not work in the original code
+    for h1, h2, ref in islice(sentences(), opts.num_sentences):
+        rset = set(ref)
+        h1_match = word_matches(h1, rset)
+        h2_match = word_matches(h2, rset)
+        print(1 if h1_match > h2_match else # \begin{cases}
+                (0 if h1_match == h2_match
+                    else -1)) # \end{cases}
+ 
+# convention to allow import of this file as a module
+if __name__ == '__main__':
+    main()
