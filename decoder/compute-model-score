@@ -40,7 +40,7 @@ def maybe_write(s, verbosity):
     sys.stdout.flush()
 
 maybe_write("Aligning...\n",0)
-maybe_write("NOTE: TM logprobs may be positive since they do not include segmentation",0)
+maybe_write("NOTE: TM logprobs may be positive since they do not include segmentation\n",0)
 total_logprob = 0.0
 unaligned_sentences = 0
 for sent_num, (f, e) in enumerate(zip(french, english)):
