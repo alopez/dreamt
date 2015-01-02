@@ -1,35 +1,96 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="assets/css/mt-class.css" rel="stylesheet">   
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <!-- MathJax -->
     <script type="text/javascript"
       src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
     </script>
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
-    <!-- JavaScript plugins (requires jQuery) -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <a class="sr-only" href="#content">Skip to main content</a>
+
+    <!-- Docs master nav -->
+    <header class="navbar navbar-fixed-top navbar-default" role="banner">
+      <div class="container">
+        <div class="row">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="nav navbar-nav">
+            <li id="main_page"><a href="index.html" class="navbar-brand">DREAMT</a></li>
+          </ul>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li id="alignment"><a href="challenge1.html">Alignment</a></li>
+            <li id="decoding"><a href="challenge2.html">Decoding</a></li>
+            <li id="evaluation"><a href="challenge3.html">Evaluation</a></li>
+            <li id="reranking"><a href="challenge4.html">Reranking</a></li>
+            <li id="about"><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+      </div>
+    </header>
 
     <div class="container">
-      {% include nav-bar.html %}
-
-      <div class="col-lg-9">
-        {{ content }}
+      <div class="row">
+        <div class="col-sm-2 hidden-sm hidden-xs">
+          {% if page.img_link %}<a href="{{ page.img_link }}">{% endif %} 
+          <img src="assets/img/{{ page.img }}.jpg" class="img-responsive img-rounded" alt="{{ page.picture }}"/>
+          {% if page.img_link %}</a>{% endif %} 
+          <span class="text-muted"><i>{{ page.caption }}</i></span>
+        </div>
+        <div class="col-sm-10">
+          {{ content }}
+        </div>
       </div>
+
+      <footer class="text-center text-muted">
+        <hr/>
+        Last updated {{ site.time | date: "%B %d, %Y" }}.<br/>
+        Website created with 
+        <a href="http://git-scm.com/">git</a>,
+        <a href="http://jekyllrb.com">jekyll</a>,
+        <a href="http://getbootstrap.com/">bootstrap</a>,
+        and <a href="http://www.vim.org/">vim</a>.<br/> 
+        Feel free to reuse the 
+        <a href="https://github.com/alopez/dreamt/tree/gh-pages">source code</a>.<br/>
+        <br/><br/>
+      </footer>
     </div>
 
-  </body
+    <!-- Page content of course! -->
+    <!-- JS and analytics only. -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./dist/js/bootstrap.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#{{ page.active_tab }}").addClass("active");
+      });
+    </script>
+  </body>
 </html>
-
