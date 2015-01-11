@@ -1,8 +1,8 @@
 ---
 layout: default
 img: rosetta
-img_url: http://www.flickr.com/photos/calotype46/6683293633/
-caption: Rosetta stone (credit&#59; calotype46)
+img_link: http://en.wikipedia.org/wiki/Rosetta_Stone
+caption: Rosetta stone (credit&#58; flickr user calotype46)
 title: Homework 1 | Alignment
 active_tab: homework
 ---
