@@ -57,8 +57,9 @@ DREAMT has been used in these courses.
 * The [machine translation class](http://mt-class.org/uiuc) at the University of Illinois.
 * The [natural language processing class](http://anoopsarkar.github.io/nlp-class/index.html) at Simon Fraser University.
 * The [natural language processing class](http://hmc-cs159-spring2015.github.io/site/) at Harvey Mudd College.
-* A [massively open online course](https://www.mt-mooc.upc.edu/) in machine translation from the Politytechnic University of Catalonia.
+* A [massively open online course](https://www.mt-mooc.upc.edu/) in machine translation from the Polytechnic University of Catalonia.
 * The [machine translation marathon](http://www.statmt.org/mtm12/), a week-long hackathon and summer school held annually in Europe.
+* The [summer school](http://www.ee.washington.edu/news/2015JelinekWorkshopSummerSchool.html) at the 2015 Jelinek summer workshop on speech and language technology.
 
 If you use DREAMT in your course or your work, we'd be happy to hear about it!
 
