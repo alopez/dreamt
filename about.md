@@ -20,7 +20,7 @@ To learn more about why we wrote it and how we use it, you can:
   that Adam Lopez gave about DREAMT in the Information Sciences Institute's artificial intelligence seminar. 
   You can also browse [the talk slides](https://drive.google.com/file/d/0B7cpo43vOGF1c1pkb29vM0l5b1U/view?usp=sharing).
 
-* View [the poster](https://drive.google.com/file/d/0B7cpo43vOGF1bXhBUXY3Tlg3Qms/view?usp=sharing) about DREAMT that was presented at the  
+* View [the poster](https://drive.google.com/file/d/0B7cpo43vOGF1bXhBUXY3Tlg3Qms/view?usp=sharing) about DREAMT that was presented at the
   annual meeting of the [Association for Computational Linguistics (ACL)](http://www.acl2013.org/site/) in 2013.
 
 Using DREAMT
