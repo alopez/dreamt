@@ -14,15 +14,14 @@ We wrote DREAMT as a teaching aid for our
 [graduate class in machine translation](http://mt-class.org). 
 To learn more about why we wrote it and how we use it, you can:
 
-* Read [the paper](http://www.transacl.org/wp-content/uploads/2013/05/paper165.pdf) that we published in the  
-  [Transactions of the Association for Computational Linguistics](http://www.transacl.org/) (TACL) in 2013.
+* Read [the paper](https://aclweb.org/anthology/Q/Q13/Q13-1014.pdf) that we published in the [Transactions of the Association for Computational Linguistics](http://www.transacl.org/) (TACL) in 2013.
 
 * Watch [the talk](http://webcasterms1.isi.edu/mediasite/SilverlightPlayer/Default.aspx?peid=ea55185170054e13972a0ea5b932eb6c1d)
   that Adam Lopez gave about DREAMT in the Information Sciences Institute's artificial intelligence seminar. 
-  You can also browse [the talk slides](http://www.cs.jhu.edu/~alopez/talks/mt-class-isi.pdf).
+  You can also browse [the talk slides](https://drive.google.com/file/d/0B7cpo43vOGF1c1pkb29vM0l5b1U/view?usp=sharing).
 
-* View [the poster](http://www.cs.jhu.edu/~alopez/files/dreamt-poster.pdf) about DREAMT that was presented at the  
-    annual meeting of the [Association for Computational Linguistics (ACL)](http://www.acl2013.org/site/) in 2013.
+* View [the poster](https://drive.google.com/file/d/0B7cpo43vOGF1bXhBUXY3Tlg3Qms/view?usp=sharing) about DREAMT that was presented at the  
+  annual meeting of the [Association for Computational Linguistics (ACL)](http://www.acl2013.org/site/) in 2013.
 
 Using DREAMT
 ============
