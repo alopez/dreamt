@@ -49,18 +49,18 @@ we politely ask that you cite our paper.
 
 DREAMT has been used in these courses.
 
-* The [machine translation class](http://www.inf.ed.ac.uk/teaching/courses/mt/) at the University of Edinburgh.
+* The [machine translation class](http://alopez.github.io/mt-class/) at the University of Edinburgh.
 * The [machine translation class](http://mt-class.org/jhu) at Johns Hopkins University.
 * The [machine translation class](http://mt-class.org/penn) at the University of Pennsylvania.
 * The [machine translation class](http://demo.clab.cs.cmu.edu/sp2013-11731/) at Carnegie Mellon University.
-* The [machine translation class](http://mt-class.org/uiuc) at the University of Illinois.
-* The [machine translation class](http://faculty.washington.edu/ymarton/classes/2016-winter/ling575/Ling575.htm) at the University of Washington.
+* The [machine translation class](http://mt-class.org/uiuc-2016/ling506.html) at the University of Illinois.
 * The [computational linguistics class](https://inclass.kaggle.com/c/oxford-cs-word-alignment-task-hilary-2013) at the University of Oxford.
 * The [natural language processing class](http://anoopsarkar.github.io/nlp-class/index.html) at Simon Fraser University.
 * The [natural language processing class](http://hmc-cs159-spring2015.github.io/site/) at Harvey Mudd College.
-* A [massively open online course](https://www.mt-mooc.upc.edu/) in machine translation from the Polytechnic University of Catalonia.
 * The [machine translation marathon](http://www.statmt.org/mtm12/), a week-long hackathon and summer school held annually in Europe.
-* The [summer school](http://www.ee.washington.edu/news/2015JelinekWorkshopSummerSchool.html) at the 2015 Jelinek summer workshop on speech and language technology.
+* A [massively open online course](http://www.irrodl.org/index.php/irrodl/article/view/2145/3554) in machine translation from the Polytechnic University of Catalonia.
+* The summer school at the 2015 Jelinek summer workshop on speech and language technology.
+* The 2016 machine translation class at the University of Washington.
 
 If you use DREAMT in your course or your work, we'd be happy to hear about it!
 
