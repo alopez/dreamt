@@ -29,7 +29,7 @@ warned = False
 for a in (sys.stdin): 
   if not warned:
     sys.stderr.write("WARNING (%s): alignment file is longer than bitext\n" % sys.argv[0])
-    warned = true
+    warned = True
   sys.stdout.write(a)
 
 try:
